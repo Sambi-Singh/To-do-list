@@ -16,4 +16,7 @@ def makeTask():
     pass
 
 def main():
-    pass
+    print('i - Inserts 1 task\nd - Deletes 1 task\nm- Modifies 1 existing task\n')
+
+if __name__ == "__main__":
+    main()
