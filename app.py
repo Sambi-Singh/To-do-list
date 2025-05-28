@@ -16,7 +16,9 @@ def makeTask():
     print("Please enter task name")
 
 def main():
-    print('i - Inserts 1 task\nd - Deletes 1 task\nm- Modifies 1 existing task\n')
+    action = input('i - Inserts 1 task\nd - Deletes 1 task\nm- Modifies 1 existing task\n')
+    print(action)
+    
     makeTask()
 
 if __name__ == "__main__":
