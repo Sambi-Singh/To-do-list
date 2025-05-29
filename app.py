@@ -5,6 +5,7 @@ def changeTask():
 
 #Read
 def showTasks():
+    print("Here are your on going tasks:")
     for task in tasks:
         print(f"{task}\n")
 
