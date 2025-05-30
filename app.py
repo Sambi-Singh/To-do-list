@@ -11,7 +11,14 @@ def showTasks():
 
 #Delete
 def deleteTask():
-    pass
+    tasks.append("berry")
+    tasks.append("cherry")
+    tasks.append("lary")
+
+    for i in range(len(tasks) - 1):
+        print(f"{tasks[i]} has been successfully removed! :)")
+        tasks.pop(i)
+
 
 #Create
 def makeTask():
@@ -31,7 +38,7 @@ def main():
         makeTask()
         showTasks()
     elif action.lower() == 'd':
-        pass
+        deleteTask()
     elif action.lower() == 'm':
         pass
     else:
