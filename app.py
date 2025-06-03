@@ -1,24 +1,46 @@
 tasks = []
 #Update
 def changeTask():
-    pass
+    showTasks()
+    taskNum = int(input("Choose the tasks # you wish to modify: "))
+    try:
+        if taskNum < len(tasks) and taskNum >= 0:
+            newTask = input("Enter the name of the new task: ")
+            tasks[taskNum] = newTask
+            print(f"{newTask} has been added as task number {taskNum}.")
+            showTasks()
+    
+    except:
+        print("Invalid task number, please try again")
 
 #Read
 def showTasks():
-    print("Here are your on going tasks:")
-    for task in tasks:
-        print(f"{task}\n")
+    if not tasks:
+        print("There are no tasks pending.")
+    else:
+        print("Here are your on going tasks:")
+        for index,task in enumerate(tasks): #enumerate useful!
+            print(f"Task #{index}. {task}")
+
+            #Task #1. Buy Milk
 
 #Delete
 def deleteTask():
-    tasks.append("berry")
-    tasks.append("cherry")
-    tasks.append("lary")
+    showTasks()
+    try:
+        taskNum = int(input("Enter the # to delete: "))
+        if taskNum>=0 and taskNum < len(tasks):
+            tasks.pop(taskNum)
+            print(f"task #{taskNum} has been removed.")
+        
+        else:
+            print(f"Tasks #{taskNum} was not found.")
+            
 
-    for i in range(len(tasks) - 1):
-        print(f"{tasks[i]} has been successfully removed! :)")
-        tasks.pop(i)
+    except:
+        print("Invalid input.")
 
+   
 
 #Create
 def makeTask():
@@ -32,17 +54,19 @@ def makeTask():
 
 
 def main():
-    action = input('i - Inserts 1 task\nd - Deletes 1 task\nm- Modifies 1 existing task\n')
+    while True:
+        action = input('i - Inserts 1 task\nd - Deletes 1 task\nm- Modifies 1 existing task\n')
     #print(action)
-    if action.lower() == 'i':
-        makeTask()
-        showTasks()
-    elif action.lower() == 'd':
-        deleteTask()
-    elif action.lower() == 'm':
-        pass
-    else:
-        print("\nTest test!")
+        if action.lower() == 'i':
+            makeTask()
+            showTasks()
+        elif action.lower() == 'd':
+            deleteTask()
+        elif action.lower() == 'm':
+            changeTask()
+        else:
+            print("\nexiting!")
+            break
 
 
     
